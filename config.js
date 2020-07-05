@@ -8,7 +8,7 @@ const path = require("path")
             model: path.resolve("./model"),
                },
         redis : "",
-        port: 6379       
+        redis_port: 6379       
     }   
 
 module.exports = configJson;

@@ -23,8 +23,13 @@ module.exports = {
         var tkn = jwt.compact();
         console.log('token is :' +tkn)
         var key = tkn;
-        var value = imapObject.toString();
-        redisClient.set(key, value);
+        console.log(typeof key)
+        var value = imapObject;
+        //console.log(JSON.parse(value))
+        redisClient.set(key,value,(err,result)=>{
+            console.log(err)
+            console.log(result)
+        });
         redisClient.get(key, function (error, result) {
             if (error) {
                 rej()
@@ -59,6 +64,18 @@ module.exports = {
                 console.log(err)
                 callback("token is not valid", null)
             } else {
+                redisClient.get(token, function (error, result) {
+                    if (error) {
+                        rej()
+                        console.log(error);
+                        callback(error,null)
+                        throw error;
+                    }
+                    //res(result)
+                    console.log('GET result ->' + JSON.parse(result));
+                    callback(null,{imap : JSON.parse(result)})
+        
+                });
                 // Token.findOne({
                 //     where: {
                 //         token: token,

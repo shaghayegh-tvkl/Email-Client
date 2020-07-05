@@ -7,7 +7,11 @@ const path = require("path")
             controller: path.resolve("./controller"),
             model: path.resolve("./model"),
                },
-        redis : "",
+        jwt:
+            {
+                secretkey:"secret-key"
+            },       
+        redis : "192.168.114.154",
         redis_port: 6379       
     }   
 

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const routeHandler = require("./index");
 const config = require("./config");
+app.set("view engine", "pug");
 app.use(cors());
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -15,6 +16,8 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", "true");
     next();
 });
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use("/api", routeHandler);
 app.all("*", (req, res) => {
     return res.status(404).json({
@@ -22,8 +25,7 @@ app.all("*", (req, res) => {
         msg: "not found*"
     });
 });
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+
 app.listen(config.port, config.ip, () => {
     console.log(`server is running on port ${config.port}`);
 });

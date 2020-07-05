@@ -1,7 +1,7 @@
 
 const express = require("express")
 const app = express()
-const mailController = require('../Controller/mailController');
+const mailController = require('../controller/mailController');
 
 app.get('/login',mailController.login)
 // app.get('inbox')

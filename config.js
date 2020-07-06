@@ -11,7 +11,7 @@ const path = require("path")
             {
                 secretkey:"secret-key"
             },       
-        redis : "192.168.114.154",
+        redis : "192.168.114.158",
         redis_port: 6379       
     }   
 

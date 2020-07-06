@@ -73,7 +73,7 @@ module.exports = {
                     }
                     //res(result)
                     console.log('GET result ->' + JSON.parse(result));
-                    callback(null,{imap : JSON.parse(result)})
+                    callback(null,JSON.parse(result))
         
                 });
                 // Token.findOne({

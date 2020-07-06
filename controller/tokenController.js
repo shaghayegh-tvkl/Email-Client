@@ -1,7 +1,7 @@
 var njwt = require('njwt')
 //var express = require('express')
 config = require("../config")
-const redisClient = require('../utils/tooRedis');
+const redisClient = require('../utils/redisClient');
 // var app = express()
 // const validator = require('../controllers/validators/token')
 // const log4js = require('log4js')
